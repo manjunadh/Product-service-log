@@ -44,7 +44,7 @@ public class ProductService {
 		return hazelcastInstance.getMap(productName);
 	}
 
-	@Cacheable(value = "allproductscache")
+	@Cacheable(cacheNames = "allproductscache")
 	public List<Product> getAllProducts() {
 		LOGGER.info("fetching all products");
 		List<Product> products = new ArrayList<>();
@@ -76,7 +76,7 @@ public class ProductService {
 		productRepository.delete(id);
 	}
 
-	@CacheEvict(value = "allproductscache", allEntries = true)
+	@CacheEvict(cacheNames = "allproductscache", allEntries = true)
 	public void evictAllProductsCache() {
 
 	}
