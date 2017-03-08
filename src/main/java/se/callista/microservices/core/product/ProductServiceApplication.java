@@ -21,4 +21,10 @@ public class ProductServiceApplication {
 		ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager("products");
 		return cacheManager;
 	}
+	
+	@Bean
+	public CacheManager cacheManagerAll() {
+		ConcurrentMapCacheManager cacheManager = new ConcurrentMapCacheManager("allproductscache");
+		return cacheManager;
+	}
 }
